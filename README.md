@@ -87,4 +87,8 @@ This is the place for you to write reflections:
 #### Reflection Subscriber-1
 1. Dalam kasus ini, penting untuk menggunakan RwLock<> karena RwLock memastikan sistem dapat membaca satu thread secara bersama sekaligus tapi hanya bisa memodifikasinya dalam waktu yang berbeda. RwLock dibutuhkan untuk mempercepat proses read dan lock untuk write. Kita tidak menggunakan Mutex<> karena mutex tidak mempertimbangkan izin akses seperti read atau write, yang penting satu data hanya bisa diakses sendiri-sendiri dalam satu waktu. Hal ini akan memperlama proses pengiriman notifikasi.
 2. Rust mengizinkan kita untuk melakukan hal tersebut karena static variable tidak bisa diubah kapan saja secara sembarangan untuk mencegah terjadinya data race yang berujung error. Penerapan lazy_static dilakukan karena memungkinkan program lebih thread-safe.
+   
 #### Reflection Subscriber-2
+1. Saya belum melakukan eksplorasi untuk langkah-langkah di luar tutorial. Hal ini karena saya ingin mempelajari teori secara lebih matang misalnya melalui YouTube lalu mempraktekannya. Jika saya melakukan eksplorasi tanpa tahu teori, saya akan kesulitan sendiri.
+2. Observer pattern memudahkan saya untuk menambah lebih banyak subscriber karena sudah dilakukan pemisahan kode antara publisher dan subscriber sehingga mereka dapat fokus ke tugasnya masing-masing. Penambahan subscriber tidak akan mempengaruhi publisher.Ini memudahkan peningkatan sistem ke penggunaan yang lebih besar.
+3. Saya belum mencoba membuat tes saya sendiri atau meningkatkan dokumentasi pada koleksi Postman. Namun saya akan coba menggunakan Postman lebih lagi karena Postman sangat bermanfaat untuk mengetes kebenaran kode yang kita buat dan memperbaiki kode terutama dalam bagian API.
