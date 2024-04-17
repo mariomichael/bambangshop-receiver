@@ -85,5 +85,6 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
-
+1. Dalam kasus ini, penting untuk menggunakan RwLock<> karena RwLock memastikan sistem dapat membaca satu thread secara bersama sekaligus tapi hanya bisa memodifikasinya dalam waktu yang berbeda. RwLock dibutuhkan untuk mempercepat proses read dan lock untuk write. Kita tidak menggunakan Mutex<> karena mutex tidak mempertimbangkan izin akses seperti read atau write, yang penting satu data hanya bisa diakses sendiri-sendiri dalam satu waktu. Hal ini akan memperlama proses pengiriman notifikasi.
+2. Rust mengizinkan kita untuk melakukan hal tersebut karena static variable tidak bisa diubah kapan saja secara sembarangan untuk mencegah terjadinya data race yang berujung error. Penerapan lazy_static dilakukan karena memungkinkan program lebih thread-safe.
 #### Reflection Subscriber-2
